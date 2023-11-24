@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let lista = ["Fabiano", "Maria", "João", "Pedro", "Ana"];
+       let Interfaccia;
+    while (Interfaccia!= 9) {
+         Interfaccia = parseInt(prompt("Ciao! Qui abbiamo questa lista!<br> Se vuoi cambiare la lista premi: 1: Aggiungi Elemento alla lista 2: Rimuovi elemento da lista 3: Ordina la lista in ordine alfabetico 4: Modifica Elemento nella lista 5: Elimina intera lista 0: Visualizza la lista 9: Torna all'inizio!"));
+         if(Interfaccia == 0){
+            VisualizzaLista(lista);
+        }
+        
+        if(Interfaccia == 1){
+            AggiungiLista();
+        }
+        if(Interfaccia == 2){
+            RimuoviLista();
+        }
+        if(Interfaccia == 3){
+            OrdinaLista(lista);
+        }
+        
+        if(Interfaccia == 4){
+            ModificaLista();
+        }
+        
+        if(Interfaccia == 5){
+            EliminaLista(lista);
+            
+        }
+    }   
+    if(Interfaccia == 9){
+        Interfaccia = 0;
+      }
+        
+        function AggiungiLista(){
+            let nuovoNome = prompt("Inserisci nuovo nome: ");
+            lista.push(nuovoNome);
+            alert("Perfetto hai aggiunto il tuo nuovo nome: " + nuovoNome);
+            console.log(lista);
+            return nuovoNome
+        }
+        
+        function RimuoviLista(nome){
+            lista.forEach(elemento => {
+                console.log(elemento);
+            })
+            let nomeEliminato = prompt("Inserisci il nome da rimuovere: ");
+            lista.splice(lista.indexOf(nomeEliminato), 1);
+            alert("Perfetto hai rimosso il seguente nome: " + nomeEliminato);
+            lista.forEach(elemento => {
+                console.log(elemento);
+            })
+            return nomeEliminato
+        }
+        
+        function OrdinaLista(lista){
+            lista.sort((a, b) => a.localeCompare(b));
+            alert("Perfetto hai ordinato la lista in ordine alfabetico!");
+            console.log(lista);
+            return lista
+        }
+        
+        function ModificaLista(){
+            let messaggio = prompt("Inserisci quale nome vuoi modificare");
+            if(!lista.includes(messaggio)){
+                alert("Il nome non è presente nella lista!");
+            }
+            let nuovoNome = prompt("Inserisci il tuo nome");
+            lista[lista.indexOf(messaggio)] = nuovoNome;
+            alert("Perfetto hai modificato il seguente nome: " + nuovoNome);
+            console.log(lista);
+            
+        }
+        
+        function EliminaLista(lista){
+         lista.length=0;
+         alert("Perfetto hai cancellato la lista!");
+         console.log(lista);
+         return lista;
+        }
+        
+        function VisualizzaLista(lista){
+            console.log("Eseguito VisualizzaLista");
+    console.log(lista);     
+        }
+        </script>
+</body>
+</html>
